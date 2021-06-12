@@ -1,0 +1,37 @@
+
+.search-bar-results-wrapper {
+    display: none;
+    position: absolute;
+    width: 100%;
+    text-align: left;
+    margin-top: -1px;
+    z-index: 3;
+    cursor: default;
+    -webkit-user-select: none;
+    
+    .search-bar-results {
+        color: #717171;
+        background: #fff;
+        box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.25);
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0 0 24px 24px;
+        padding-bottom: 4px;
+        overflow: hidden;
+        padding: 15px 25px;
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+    }
+}

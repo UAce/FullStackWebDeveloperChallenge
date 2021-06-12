@@ -10,3 +10,27 @@
     display: table-cell;
     vertical-align: middle; */
 }
+
+.search-section {
+    font-family: 'Libre Baskerville', serif !important;
+    width: auto;
+    max-width: 600px;
+    position: relative;
+    margin: 0 auto;
+    padding-top: 6px;
+}
+
+.search-section.active {
+    .search-bar {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .search-bar-results-wrapper {
+        display: inherit;
+    }
+
+    .search-bar-action-button {
+        display: inherit !important;
+    }
+}
