@@ -1,7 +1,22 @@
 # Full Stack Web Developer Challenge
 
 ## How to run the Search Engine
-TODO
+
+Start the backend server
+```
+cd backend
+npm run dev
+```
+
+Start the frontend client
+```
+cd frontend
+npm start
+```
+
+## Assumptions
+* User will only search a single word at a time
+* Not for production, so the backend is using in-cache memory instead of a database
 
 ## Task Description
 Your task for this challenge is to create a small search engine comprising of two parts, a web-based user interface and a server component that exposes a REST API which provides search results retrieved from a corpus of text that will be provided to you in `corpus/hemingway.txt`.

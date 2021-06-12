@@ -45,6 +45,10 @@
             background: rgba(142, 180, 192, 0.6);
             border-radius: 4px;
             margin: 2px;
+
+            &:hover {
+                background: rgba(118, 167, 182, 0.6);
+            }
         }
     }
 }

@@ -39,6 +39,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ word, setWord }) => {
     try {
       await removeMostSimilarWord(word);
       setWord("");
+      setWord(word); // a hack to refresh the search result
       message.success({
         content: `Successfully removed the most similar word to '${word}' from the search corpus`,
         className: "success"
