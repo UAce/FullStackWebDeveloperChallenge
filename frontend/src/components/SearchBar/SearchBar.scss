@@ -1,0 +1,112 @@
+.search-section {
+    font-family: 'Libre Baskerville', serif !important;
+    width: auto;
+    max-width: 584px;
+    position: relative;
+    margin: 0 auto;
+    padding-top: 6px;
+}
+.search-bar {
+    width: auto;
+    max-width: 584px;
+    background: #fff;
+    display: flex;
+    border: none;
+    box-shadow: none;
+    border-radius: 18px;
+    z-index: 3;
+    height: 44px;
+    margin: 0 auto;
+    border-color: rgba(223,225,229,0);
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.search-bar-content {
+    flex: 1;
+    display: flex;
+    padding: 0 20px;
+    padding-left: 14px;
+
+    .search-bar-search {
+        display: flex;
+        flex: 1;
+        flex-wrap: wrap;
+        input {
+            border-radius: 25px;
+            background: white;
+            outline: none;
+            border: 0;
+            width: 100%;
+            cursor: text;
+        }
+    }
+    .search-bar-actions {
+        display: flex;
+        flex: 0 auto;
+        padding-top: 3px;
+        align-items: center;
+        flex-direction: row;
+    }
+}
+
+.search-bar-results-wrapper {
+    position: absolute;
+    width: 100%;
+    text-align: left;
+    margin-top: -1px;
+    z-index: 3;
+    cursor: default;
+    -webkit-user-select: none;
+    
+    .search-bar-results {
+        color: black;
+        background: #fff;
+        box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.25);
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0 0 24px 24px;
+        padding-bottom: 4px;
+        overflow: hidden;
+        padding: 1rem;
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+::placeholder {
+    color: #A7A7A7;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #A7A7A7;
+}
+
+::-ms-input-placeholder {
+    color: #A7A7A7;
+}
+
+.ant-input {
+    outline: none !important;
+    border: none;
+    transition: none;
+}
+
+.ant-input:focus, .ant-input-focused {
+    outline: none !important;
+    border: none !important;
+    border-bottom: 1px solid white !important;
+    box-shadow: none;
+}

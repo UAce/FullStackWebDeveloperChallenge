@@ -1,0 +1,21 @@
+.app-layout {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    min-height: 0;
+    background: #1FC4FA !important;
+    min-height: 100vh;
+}
+.app-layout-content {
+    // padding: 0px 50px;
+    /* margin-top: 64px; */
+    flex: auto;
+    min-height: 0;
+    background: rgb(99, 216, 255);
+     /* background: grey;
+    margin: 0 auto;
+    background: rgb(99, 216, 255);
+    position: relative;
+    padding: 20px;
+    display: table; */
+}
