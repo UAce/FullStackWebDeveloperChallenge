@@ -22,4 +22,4 @@ Built with ExpressJS with TypeScript
 ```
 npm run dev
 ```
-You can access your server via [`localhost:4000`](http://localhost:4000)
+You can access your server via [`localhost:4000`](http://localhost:4000/health)
