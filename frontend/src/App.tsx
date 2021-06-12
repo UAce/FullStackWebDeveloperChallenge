@@ -11,7 +11,7 @@ const App: React.FC<AppProps> = () => {
     <BrowserRouter>
       <Switch>
         <Route path="/" component={Home} exact />
-        {/* Catch all */}
+        {/* Catch all and redirect to / */}
         <Route path="/">
           <Redirect to="/" />
         </Route>

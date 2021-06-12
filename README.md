@@ -16,7 +16,12 @@ npm start
 
 ## Assumptions
 * User will only search a single word at a time
+* The search only returns words similar to the queried word and will not return the word itself
 * Not for production, so the backend is using in-cache memory instead of a database
+
+## Improvements
+* Use a noSQL database to persist the server data
+* Use Redux for global state management
 
 ## Task Description
 Your task for this challenge is to create a small search engine comprising of two parts, a web-based user interface and a server component that exposes a REST API which provides search results retrieved from a corpus of text that will be provided to you in `corpus/hemingway.txt`.

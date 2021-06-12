@@ -22,6 +22,9 @@ export const addWord = async (word: string): Promise<void> => {
   });
 };
 
-export const removeMostSimilarWord = async (word: string): Promise<void> => {
-  return operationAxios.delete(`/remove/similar/${word}`);
+export const removeMostSimilarWord = async (word: string): Promise<string> => {
+  const { data: removedWord }: AxiosResponse = await operationAxios.delete(
+    `/remove/similar/${word}`
+  );
+  return removedWord;
 };

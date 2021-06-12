@@ -1,3 +1,4 @@
+import { SearchOutlined } from "@ant-design/icons";
 import React, { MutableRefObject, useRef } from "react";
 
 import { ISimilarWord } from "../../common/interfaces";
@@ -20,7 +21,12 @@ const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
           <ul>
             {results.map((result: ISimilarWord, index: number) => {
               if (index < 3) {
-                return <li>{result.target}</li>;
+                return (
+                  <li key={result.target}>
+                    <SearchOutlined />
+                    {result.target}
+                  </li>
+                );
               }
               return <></>;
             })}

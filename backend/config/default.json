@@ -1,1 +1,12 @@
-{}
+{
+    "logger": {
+        "prettyPrint": {
+            "translateTime": "yyyy-mm-dd HH:MM:ss",
+            "colorize": true,
+            "ignore": "pid,hostname",
+            "messageFormat": "{msg}"
+            },
+            "level": "debug"
+    },
+    "corpusFilePath": "public/hemingway.txt"
+}

@@ -41,7 +41,7 @@ const Home: React.FC<HomeProps> = () => {
       <div className="search-wrapper">
         <Title />
         <div className="search-section" ref={searchSectionRef}>
-          <SearchBar word={word} setWord={setWord} />
+          <SearchBar word={word} setWord={setWord} results={searchResults} />
           <SearchResults results={searchResults} />
         </div>
       </div>

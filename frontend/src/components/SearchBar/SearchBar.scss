@@ -47,9 +47,18 @@
             margin: 2px;
 
             &:hover {
-                background: rgba(118, 167, 182, 0.6);
+                background: rgba(118, 167, 182, 0.418);
+            }
+
+            &.disabled {
+                background: rgba(196, 212, 218, 0.753);
+                cursor: not-allowed;
+                &:hover {
+                    background: rgba(196, 212, 218, 0.753);
+                }
             }
         }
+        
     }
 }
 
@@ -79,6 +88,9 @@
     box-shadow: none;
 }
 
+.ant-message-notice {
+    text-align: right;
+}
 .ant-message-notice-content {
     border-radius: 20px !important;
 }
@@ -89,6 +101,16 @@
         background: #23D107;
     }
     .ant-message-success .anticon {
+        color: white;
+    }
+}
+
+.warning {
+    .ant-message-notice-content {
+        color: white;
+        background: rgb(236, 146, 0);
+    }
+    .ant-message-warning .anticon {
         color: white;
     }
 }

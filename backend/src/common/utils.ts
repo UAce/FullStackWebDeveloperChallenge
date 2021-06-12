@@ -16,7 +16,7 @@ export interface ISimilarWord {
  * @param searchCorpus Array of words to search for similar words
  */
 export const findSimilarWords = (word: string, searchCorpus: Array<string>) => {
-  logger.debug(`searching for words similar to ${word}`);
+  logger.debug(`Searching for words similar to ${word}`);
   const matches = stringSimilarity.findBestMatch(word, searchCorpus);
   let similar: ISimilarWord[] = [];
 
