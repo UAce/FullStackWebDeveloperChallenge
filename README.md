@@ -1,4 +1,8 @@
 # Full Stack Web Developer Challenge
+
+## How to run the Search Engine
+TODO
+
 ## Task Description
 Your task for this challenge is to create a small search engine comprising of two parts, a web-based user interface and a server component that exposes a REST API which provides search results retrieved from a corpus of text that will be provided to you in `corpus/hemingway.txt`.
 
