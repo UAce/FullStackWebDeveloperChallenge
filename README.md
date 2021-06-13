@@ -14,10 +14,24 @@ cd frontend
 npm start
 ```
 
+## How to run the tests
+
+Backend server test
+```
+cd backend
+npm run test
+```
+
+Frontend client test
+```
+cd frontend
+npm run test -- --watchAll
+```
+
 ## Assumptions
 * User will only search a single word at a time
 * The search only returns words similar to the queried word and will not return the word itself
-* Not for production, so the backend is using in-cache memory instead of a database
+* For simplicity, the backend data isn't persisted and is using in-cache memory instead of a database
 
 ## Improvements
 * Use a noSQL database to persist the server data
