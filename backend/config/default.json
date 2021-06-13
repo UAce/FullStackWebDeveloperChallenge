@@ -6,7 +6,7 @@
             "ignore": "pid,hostname",
             "messageFormat": "{msg}"
             },
-            "level": "debug"
+            "level": "info"
     },
     "corpusFilePath": "public/hemingway.txt"
 }

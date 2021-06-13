@@ -2,9 +2,7 @@ import supertest from "supertest";
 
 import { app, server } from "../index";
 import { delay } from "../common/utils";
-import Logger from "../common/logger";
 
-const logger = Logger.getInstance({ name: __filename });
 const request = supertest(app);
 
 describe("Test Operations APIs", () => {
@@ -14,25 +12,17 @@ describe("Test Operations APIs", () => {
       app.on("ready", () => (appReady = true));
 
       while (!appReady) {
-        logger.warn("Waiting for app to be running");
-        await delay(1000);
+        await delay(500);
       }
     };
-    waitForAppReady().then(() => {
-      done();
-    });
+    waitForAppReady().then(done);
   });
 
   afterAll(async () => {
-    logger.warn("Closing server");
     server.close();
     await delay(2000);
   });
 
-  it("Test", () => {
-    const res = 2;
-    expect(res).toBe(2);
-  });
   it("GET /api/search/:word should return an array of similar words", async () => {
     const result = await request.get("/api/search/cry").send();
 

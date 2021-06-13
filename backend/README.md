@@ -13,7 +13,6 @@ Built with ExpressJS with TypeScript
 │   ├── routes              # Api Routes files
 │   ├── handlers            # Api Handlers files
 │   └── index.ts            # Entrypoint
-├── tests                   # Automated tests
 └── README.md
 ```
 

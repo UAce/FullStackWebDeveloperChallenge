@@ -1,23 +1,22 @@
+import renderer from "react-test-renderer";
 import { render, screen, queryByAttribute } from "@testing-library/react";
 
 import SearchBar from "./SearchBar";
 
 describe("Test SearchBar Component", () => {
   it("Should render correctly", () => {
-    const word = "hell";
+    const word = "hel";
     const props = {
       word,
       setWord: jest.fn().mockReturnValue([word, {}]),
       results: [{ target: "hello", rating: 0.8 }]
     };
 
-    render(<SearchBar {...props} />);
-
-    const childElement = screen.getByDisplayValue(word);
-    expect(childElement).toBeInTheDocument();
+    const tree = renderer.create(<SearchBar {...props} />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
-  it("Should disable add button when querying more than one word", () => {
+  it("Should render results and disable add button when querying more than one word", () => {
     const word = "hello world";
     const props = {
       word,
@@ -32,7 +31,7 @@ describe("Test SearchBar Component", () => {
     expect(addButton).toHaveClass("disabled");
   });
 
-  it("Should disable remove button when there are no results", () => {
+  it("Should render no results and disable remove button when queried word has no similar words", () => {
     const word = "no-similar-words";
     const props = {
       word,
