@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc -p .",
     "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts",
-    "test": "jest --runInBand"
+    "test": "jest --detectOpenHandles"
   },
   "repository": {
     "type": "git",

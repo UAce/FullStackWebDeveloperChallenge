@@ -55,6 +55,19 @@ describe("Test Operations APIs", () => {
     expect(result.body[0].target).toBe(word);
   });
 
+  it("POST /api/add should throw 409 if word already exists in the corpus", async () => {
+    const word = "newWord";
+    await request
+      .post("/api/add")
+      .send({ word })
+      .expect(201);
+
+    await request
+      .post("/api/add")
+      .send({ word })
+      .expect(409);
+  });
+
   it("DELETE /api/remove/similar/:word should delete the most similar word from the corpus", async () => {
     const word = "cry";
     const searchResult = await request
@@ -69,5 +82,19 @@ describe("Test Operations APIs", () => {
       .send()
       .expect(200);
     expect(deleteResult.text).toBe(mostSimilarWord);
+  });
+
+  it("DELETE /api/remove/similar/:word should throw 404 if no similar words are found", async () => {
+    const word = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+    const result = await request
+      .get(`/api/search/${word}`)
+      .send()
+      .expect(200);
+    expect(result.body.length).toBe(0);
+
+    await request
+      .delete(`/api/remove/similar/${word}`)
+      .send()
+      .expect(404);
   });
 });

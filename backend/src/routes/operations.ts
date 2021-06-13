@@ -32,6 +32,5 @@ Router.post("/add", addWord);
  * in the corpus from further search results
  */
 Router.delete("/remove/similar/:word", removeMostSimilarWord);
-// Router.delete("/remove/:word", removeWord);
 
 export default Router;
