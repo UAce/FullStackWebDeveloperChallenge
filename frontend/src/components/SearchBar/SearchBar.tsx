@@ -99,6 +99,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ word, setWord, results }) => {
         </div>
         <div className="search-bar-actions">
           <a
+            id="addWord"
             className={`search-bar-action-button ${
               word.split(" ").length > 1 ? "disabled" : ""
             }`}
@@ -109,6 +110,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ word, setWord, results }) => {
             </Tooltip>
           </a>
           <a
+            id="removeMostSimilarWord"
             className={`search-bar-action-button ${
               results.length === 0 || word.split(" ").length > 1
                 ? "disabled"

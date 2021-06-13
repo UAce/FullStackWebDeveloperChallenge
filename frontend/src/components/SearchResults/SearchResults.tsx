@@ -9,7 +9,6 @@ interface SearchResultsProps {
 }
 
 const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
-  console.log(results);
   const searchResultsRef = useRef<HTMLDivElement>() as MutableRefObject<
     HTMLDivElement
   >;
@@ -18,17 +17,16 @@ const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
       <div className="search-bar-results">
         <h2>Most Similar Words</h2>
         {results.length > 0 ? (
-          <ul>
+          <ul id="searchResultList">
             {results.map((result: ISimilarWord, index: number) => {
-              if (index < 3) {
-                return (
-                  <li key={result.target}>
-                    <SearchOutlined />
-                    {result.target}
-                  </li>
-                );
-              }
-              return <></>;
+              return index < 3 ? (
+                <li key={result.target}>
+                  <SearchOutlined />
+                  {result.target}
+                </li>
+              ) : (
+                <></>
+              );
             })}
           </ul>
         ) : (

@@ -9,8 +9,9 @@ Built with Create React App and Ant Design
 ├── public                  # Public files
 ├── src                     # Source files
 │   ├── common              # Common files
-│   │   ├── api.ts          # Common api functions
-│   │   └── interfaces.ts   # Common interfaces
+│   │   ├── config.ts       # Config file
+│   │   ├── api.ts          # Api functions
+│   │   └── interfaces.ts   # Custom Interfaces/Types
 │   ├── components          # React Components files
 │   └── index.tsx           # Entrypoint
 └── README.md

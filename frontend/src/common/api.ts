@@ -1,11 +1,9 @@
 import axios, { AxiosResponse } from "axios";
 
 import { ISimilarWord } from "./interfaces";
+import config from "./config";
 
-const operationAxios = axios.create({
-  baseURL: `http://localhost:4000/api`
-  // headers: {}
-});
+const operationAxios = axios.create({ baseURL: `${config.baseURL}/api` });
 
 export const getSimilarWords = async (
   word: string
