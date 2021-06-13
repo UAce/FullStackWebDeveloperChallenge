@@ -1,0 +1,73 @@
+import supertest from "supertest";
+
+import { app, server } from "../index";
+import { delay } from "../common/utils";
+import Logger from "../common/logger";
+
+const logger = Logger.getInstance({ name: __filename });
+const request = supertest(app);
+
+describe("Test Operations APIs", () => {
+  beforeAll(done => {
+    const waitForAppReady = async (): Promise<void> => {
+      let appReady = false;
+      app.on("ready", () => (appReady = true));
+
+      while (!appReady) {
+        logger.warn("Waiting for app to be running");
+        await delay(1000);
+      }
+    };
+    waitForAppReady().then(() => {
+      done();
+    });
+  });
+
+  afterAll(async () => {
+    logger.warn("Closing server");
+    server.close();
+    await delay(2000);
+  });
+
+  it("Test", () => {
+    const res = 2;
+    expect(res).toBe(2);
+  });
+  it("GET /api/search/:word should return an array of similar words", async () => {
+    const result = await request.get("/api/search/cry").send();
+
+    expect(result.status).toBe(200);
+    expect(result.body.length).toBeGreaterThan(0);
+  });
+
+  it("POST /api/add should add a new word to the corpus", async () => {
+    const word = "supertest";
+    await request
+      .post("/api/add")
+      .send({ word })
+      .expect(201);
+
+    const result = await request
+      .get("/api/search/supertes")
+      .send()
+      .expect(200);
+    expect(result.body.length).toBeGreaterThan(0);
+    expect(result.body[0].target).toBe(word);
+  });
+
+  it("DELETE /api/remove/similar/:word should delete the most similar word from the corpus", async () => {
+    const word = "cry";
+    const searchResult = await request
+      .get(`/api/search/${word}`)
+      .send()
+      .expect(200);
+    expect(searchResult.body.length).toBeGreaterThan(0);
+
+    const mostSimilarWord = searchResult.body[0].target;
+    const deleteResult = await request
+      .delete(`/api/remove/similar/${word}`)
+      .send()
+      .expect(200);
+    expect(deleteResult.text).toBe(mostSimilarWord);
+  });
+});

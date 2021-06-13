@@ -3,15 +3,17 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
+import { Server } from "http";
 
-import { init } from "./common/corpusLoader";
+import { loadCorpus } from "./common/corpusLoader";
 import operationRoutes from "./routes/operations";
 
 dotenv.config();
 
 const host: string = process.env.HOST || "localhost";
 const port = Number(process.env.PORT || "4000");
-const app = express(); // Creates Express app
+export const app = express(); // Creates Express app
+export let server: Server; //
 
 // Third-party Middlewares
 app.use(helmet());
@@ -26,11 +28,12 @@ app.use("/health", (_: Request, res: Response) =>
 
 app.use("/api", operationRoutes);
 
-init()
+loadCorpus()
   .then(() => {
     // Start server
-    app.listen(port, host, () => {
+    server = app.listen(port, host, () => {
       console.log(`Server is running on port ${port}`);
+      app.emit("ready");
     });
   })
   .catch(error => {

@@ -39,3 +39,7 @@ export const findSimilarWords = (word: string, searchCorpus: Array<string>) => {
   }
   return similar;
 };
+
+export const delay = (ms: number): Promise<void> => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+};

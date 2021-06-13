@@ -6,7 +6,7 @@ import Logger from "./logger";
 
 const logger = Logger.getInstance({ name: __filename });
 
-// In-cache memory
+// In-memory cache
 export const wordBank: Set<string> = new Set();
 
 const punctuations = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
@@ -16,11 +16,11 @@ const readInterface = readline.createInterface({
   terminal: false
 });
 
-export const init = async () => {
+export const loadCorpus = async () => {
   for await (const line of readInterface) {
     for (const word of line.replace(punctuations, "").split(" ")) {
       wordBank.add(word);
     }
   }
-  logger.debug("corpus loaded");
+  logger.debug("Search Corpus loaded");
 };
